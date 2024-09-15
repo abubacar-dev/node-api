@@ -5,6 +5,10 @@ const dataBasePath = new URL('../controllers/db.js', import.meta.url)
 export class DataBase {
     #databese = {}
 
+    #presist() {
+        fs.writeFile(dataBasePath, JSON.stringify(this.#databese))
+    }
+
     select(table, search) {
         let data = this.#databese[table] ?? []
 
