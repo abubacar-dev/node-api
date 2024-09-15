@@ -1,6 +1,7 @@
 import http from 'node:http';
 import { bodyToJson } from './middlewares/bodytojson.js';
 import { routes } from './routes.js';
+import { extractQueryParams } from './utils/extractqueryparams.js';
 
 const port = 3000;
 const host = 'localhost'
@@ -19,6 +20,8 @@ const server = http.createServer(async (req, res) => {
         const { query, ...params } = routeParams.groups
         
         req.params = params
+
+        req.query = query ? extractQueryParams(query) : {}
 
         return route.handler(req, res)
     }
