@@ -19,5 +19,13 @@ export class DataBase {
         }
 
         return data
+    };
+
+    update(table, id, data) {
+        const rowIndex = this.#databese[table].find(row => row.id === id)
+        
+        if(rowIndex > -1) {
+            this.#databese[table][rowIndex] = {id, ...data}
+        }
     }
 }
