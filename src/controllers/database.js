@@ -1,9 +1,19 @@
 import fs from 'node:fs/promises';
 
-const dataBasePath = new URL('../controllers/db.js', import.meta.url)
+const dataBasePath = new URL('../../db.js', import.meta.url)
 
 export class DataBase {
     #databese = {}
+
+    constructor() {
+        fs.readFile(dataBasePath, 'utf8')
+            .then(data => {
+                this.#databese = JSON.parse(data)
+            })
+            .catch(() => {
+                this.#presist()
+            })
+    }
 
     #presist() {
         fs.writeFile(dataBasePath, JSON.stringify(this.#databese))
@@ -30,6 +40,8 @@ export class DataBase {
             this.#databese[table] = [data]
         }
 
+        this.#presist()
+
         return data
     };
 
@@ -38,6 +50,8 @@ export class DataBase {
 
         if(rowIndex > -1) {
             this.#databese[table][rowIndex] = {id, ...data}
+
+            this.#presist()
         }
     };
 
@@ -46,6 +60,8 @@ export class DataBase {
 
         if(rowIndex > -1) {
             this.#databese[table].splice(rowIndex, 1)
+
+            this.#presist()
         }
     }
 }
