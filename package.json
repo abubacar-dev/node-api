@@ -8,6 +8,6 @@
     "dev": "node --watch src/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "mussinady abubacar",
   "license": "ISC"
 }
