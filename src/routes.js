@@ -1,13 +1,13 @@
 import { randomUUID } from 'node:crypto';
 import { DataBase } from './controllers/database.js';
-import path from 'node:path';
+import { buildRoutePath } from './utils/buildroutepath.js';
 
 const dataBase = new DataBase()
 
 export const routes = [
     {
         method: 'GET',
-        path: '/users',
+        path: buildRoutePath('/users'),
         handler: (req, res) => {
             const users = dataBase.select('users')
 
@@ -16,7 +16,7 @@ export const routes = [
     },
     {
         method: 'POST',
-        path: '/users',
+        path: buildRoutePath('/users'),
         handler: (req, res) => {
             const { name, email } = req.body
 
