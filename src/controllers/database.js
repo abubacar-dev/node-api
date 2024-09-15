@@ -5,9 +5,17 @@ const dataBasePath = new URL('../controllers/db.js', import.meta.url)
 export class DataBase {
     #databese = {}
 
-    select(table) {
+    select(table, search) {
         const data = this.#databese[table] ?? []
 
+        if(search) {
+            data = data.filter(row => {
+                return Object.entries(search).some((key, value) => {
+                    return row[key].toLowerCase().includes(value.toLowerCase())
+                })
+            })
+        }
+        
         return data
     };
 
