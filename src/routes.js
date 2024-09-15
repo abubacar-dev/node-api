@@ -1,7 +1,6 @@
 import { randomUUID } from 'node:crypto';
 import { DataBase } from './controllers/database.js';
 import { buildRoutePath } from './utils/buildroutepath.js';
-import path from 'node:path';
 
 const dataBase = new DataBase()
 
@@ -45,6 +44,19 @@ export const routes = [
                 name,
                 email,
             })
+
+            return res
+                .writeHead(204)
+                .end()
+        }
+    },
+    {
+        method: 'DELETE',
+        path: buildRoutePath('/users/:id'),
+        handler: (req, res) => {
+            const { id } = req.params
+            
+            dataBase.delete('users', id)
 
             return res
                 .writeHead(204)

@@ -22,10 +22,18 @@ export class DataBase {
     };
 
     update(table, id, data) {
-        const rowIndex = this.#databese[table].find(row => row.id === id)
-        
+        const rowIndex = this.#databese[table].findIndex(row => row.id === id)
+
         if(rowIndex > -1) {
             this.#databese[table][rowIndex] = {id, ...data}
+        }
+    };
+
+    delete(table, id) {
+        const rowIndex = this.#databese[table].findIndex(row => row.id === id)
+
+        if(rowIndex > -1) {
+            this.#databese[table].splice(rowIndex, 1)
         }
     }
 }
