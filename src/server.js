@@ -1,5 +1,5 @@
 import http from 'node:http';
-import { bodyToJson } from './middlewares/bodytojson';
+import { bodyToJson } from './middlewares/bodytojson.js';
 import { routes } from './routes.js';
 
 const port = 3000;
@@ -17,7 +17,7 @@ const server = http.createServer(async (req, res) => {
     if(route) {
         return route.handler(req, res)
     }
-    
+
     return res  
         .writeHead(404)
         .end(JSON.stringify({error: 'Resource not Found...'}))
