@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "uma api simples sem framework usando modulos nativos do nodejs",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
