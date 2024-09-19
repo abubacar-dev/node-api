@@ -14,24 +14,20 @@ npm run dev
 ```
 #### Return all users
 
-```http
-    GET http://localhost:3333/users
-```
+`GET http://localhost:3333/users`
 
 #### Return filtered user
 
-```http
-    GET http://localhost:3000/users?search=${name}
-```
+`GET http://localhost:3000/users?search=${name}`
+
 | Parameter   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
 | `name`      | `string` | **Mandatory**. |
 
 #### Create new user
 
-```http
-    POST http://localhost:3333/users
-```
+`POST http://localhost:3333/users`
+
 ```json 
     {
         "name": "Jonh Doe",
@@ -41,9 +37,8 @@ npm run dev
 
 #### Update user
 
-```http
-    PUT http://localhost:3333/users/${ID-UUID}
-```
+`PUT http://localhost:3333/users/${ID-UUID}`
+
 ```json 
     {
         "name": "Jonh Doe Doe",
@@ -57,9 +52,7 @@ npm run dev
 
 #### Delete user
 
-```http
-    DELETE http://localhost:3333/users/${ID-UUID}
-```
+`DELETE http://localhost:3333/users/${ID-UUID}`
 
 | Parameter   | Type       | Description                                   |
 | :---------- | :--------- | :------------------------------------------ |
