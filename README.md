@@ -73,3 +73,5 @@ npm run dev
 ## Demonstration
 
 ![](.github/demostration-api.gif)
+
+<p align="center"> Developed with ❤️ by Mussinady Abubacar</p>
